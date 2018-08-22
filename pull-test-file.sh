@@ -1,11 +1,7 @@
 artifact_url=$1
-override_url=$2
-
-echo "Args:"
-echo $1
 echo $2
 
-resource_endpoint=${override_url:-$artifact_url}
+resource_endpoint=$artifact_url
 output="test-file.date"
 echo "$(date +"%D %T") | Start fetch $resource_endpoint"
 curl -v -o $output -X GET "${resource_endpoint}"
