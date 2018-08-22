@@ -1,0 +1,9 @@
+---
+  version: '3.5'
+
+  services:
+    wma-network-test:
+      build: .
+      image: wma-network-test
+      ports:
+        - "443:443"
