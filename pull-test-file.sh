@@ -3,9 +3,9 @@ echo $2
 
 resource_endpoint=$artifact_url
 output="test-file.date"
-echo "$(date +"%D %T") | Start fetch $resource_endpoint"
+echo "$(date) | Start fetch $resource_endpoint"
 curl -v --no-tcp-nodelay -o $output -X GET "${resource_endpoint}"
-echo "$(date +"%D %T") | End fetch $resource_endpoint"
+echo "$(date) | End fetch $resource_endpoint"
 echo "Artifact: ${group}.${artifact}\nVersion: ${version}\nRetireved At: $(date)" >> artifact-metadata.txt
 retrieved_size=$(echo $(stat --printf="%s" $output))
 expected_size=$(echo $(curl -sI $resource_endpoint | grep -i Content-Length | awk '{print $2}'))
